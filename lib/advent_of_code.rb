@@ -1,5 +1,6 @@
-require "advent_of_code/day1"
-require "advent_of_code/day2"
+require "zeitwerk"
+loader = Zeitwerk::Loader.for_gem
+loader.setup
 
 module AdventOfCode
 end
