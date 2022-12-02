@@ -8,7 +8,11 @@ module AdventOfCode
     end
 
     def read
-      File.read(local_path)
+      if File.exist?(local_path)
+        File.read(local_path)
+      else
+        raise "Input data was not found locally"
+      end
     end
 
     private
