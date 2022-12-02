@@ -21,6 +21,14 @@ class Day2
       end
     end
 
+    def losing_shape
+      SHAPES[self]
+    end
+
+    def winning_shape
+      SHAPES.invert[self]
+    end
+
     private_class_method :new
   end
 
@@ -43,6 +51,21 @@ class Day2
 
     def me
       Shape::SHAPES.keys[string[2].ord - "X".ord]
+    end
+  end
+
+  class Part2Decrypter < Part1Decrypter
+    private
+
+    def me
+      case string[2]
+      when "X"
+        opponent.losing_shape
+      when "Y"
+        opponent
+      when "Z"
+        opponent.winning_shape
+      end
     end
   end
 
@@ -74,8 +97,18 @@ class Day2
   end
 
   def part1
+    score_with_decrypter(Part1Decrypter)
+  end
+
+  def part2
+    score_with_decrypter(Part2Decrypter)
+  end
+
+  private
+
+  def score_with_decrypter(decrypter_class)
     input.lines(chomp: true).map do |line|
-      Part1Decrypter.new(line).round.score
+      decrypter_class.new(line).round.score
     end.sum
   end
 
@@ -86,6 +119,7 @@ end
 
 day2 = Day2.new
 puts day2.part1
+puts day2.part2
 
 __END__
 C Y
