@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module AdventOfCode
-  class Day2
+  class Day2 < BaseDay
     class Shape
       ROCK = new
       PAPER = new
@@ -113,10 +113,6 @@ module AdventOfCode
       input.lines(chomp: true).map do |line|
         decrypter_class.new(line).round.score
       end.sum
-    end
-
-    def input
-      @_input ||= File.read(File.join(__dir__, "..", "..", "data", "2022", "day2.txt"))
     end
   end
 end
