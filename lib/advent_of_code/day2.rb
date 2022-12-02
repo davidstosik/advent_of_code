@@ -1,4 +1,4 @@
-require_relative "advent_of_code"
+require_relative "../advent_of_code"
 
 class AdventOfCode::Day2
   class Shape
@@ -115,7 +115,7 @@ class AdventOfCode::Day2
   end
 
   def input
-    @_input ||= File.read(File.join(__dir__, "..", "data", "2022", "day2.txt"))
+    @_input ||= File.read(File.join(__dir__, "..", "..", "data", "2022", "day2.txt"))
   end
 end
 

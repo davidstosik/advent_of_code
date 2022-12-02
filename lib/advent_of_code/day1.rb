@@ -1,4 +1,4 @@
-require_relative "advent_of_code"
+require_relative "../advent_of_code"
 require "net/http"
 
 class AdventOfCode::Day1
@@ -21,7 +21,7 @@ class AdventOfCode::Day1
   end
 
   def input
-    @_input ||= File.read(File.join(__dir__, "..", "data", "2022", "day1.txt"))
+    @_input ||= File.read(File.join(__dir__, "..", "..", "data", "2022", "day1.txt"))
   end
 end
 
