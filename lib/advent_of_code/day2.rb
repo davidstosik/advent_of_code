@@ -118,7 +118,3 @@ class AdventOfCode::Day2
     @_input ||= File.read(File.join(__dir__, "..", "..", "data", "2022", "day2.txt"))
   end
 end
-
-day2 = AdventOfCode::Day2.new
-puts day2.part1
-puts day2.part2
