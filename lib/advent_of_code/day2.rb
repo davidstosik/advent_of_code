@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AdventOfCode
   class Day2
     class Shape
