@@ -1,5 +1,4 @@
 # frozen_string_literal: true
 
-$LOAD_PATH.unshift File.expand_path("../lib", __dir__)
-require "advent_of_code"
+require_relative "../boot"
 require "minitest/autorun"
