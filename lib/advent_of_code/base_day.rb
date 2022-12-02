@@ -9,7 +9,7 @@ module AdventOfCode
     end
 
     def year
-      "2022" # FIXME next year?
+      self.class.name[/(?<=::Year)\d+(?=::)/]
     end
 
     def day

@@ -26,11 +26,15 @@ module AdventOfCode
     end
 
     def day_class
-      AdventOfCode.const_get("Day#{day}")
+      year_module.const_get("Day#{time.day}")
     end
 
-    def day
-      Time.now.localtime(TIME_OFFSET).day
+    def year_module
+      AdventOfCode.const_get("Year#{time.year}")
+    end
+
+    def time
+      @_time ||= Time.now.localtime(TIME_OFFSET)
     end
   end
 end
