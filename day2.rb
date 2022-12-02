@@ -1,4 +1,6 @@
-class Day2
+require_relative "advent_of_code"
+
+class AdventOfCode::Day2
   class Shape
     ROCK = new
     PAPER = new
@@ -117,7 +119,7 @@ class Day2
   end
 end
 
-day2 = Day2.new
+day2 = AdventOfCode::Day2.new
 puts day2.part1
 puts day2.part2
 

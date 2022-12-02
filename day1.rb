@@ -1,6 +1,7 @@
+require_relative "advent_of_code"
 require "net/http"
 
-class Day1
+class AdventOfCode::Day1
   def part1
     input.lines(chomp: true).inject(max: 0, sum: 0) do |acc, line|
       if line.empty?
@@ -24,7 +25,7 @@ class Day1
   end
 end
 
-day1 = Day1.new
+day1 = AdventOfCode::Day1.new
 puts day1.part1
 puts day1.part2
 
