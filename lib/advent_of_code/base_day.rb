@@ -5,7 +5,7 @@ module AdventOfCode
     private
 
     def input
-      @_input ||= File.read(input_path)
+      Input.new(year, day).read
     end
 
     def year
@@ -14,10 +14,6 @@ module AdventOfCode
 
     def day
       self.class.name[/(?<=Day)\d+$/]
-    end
-
-    def input_path
-      File.join(__dir__, "..", "..", "data", year, "day#{day}.txt")
     end
   end
 end
