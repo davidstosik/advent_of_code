@@ -24,17 +24,13 @@ module AdventOfCode
     attr_reader :year, :day
 
     def local_path
-      File.join(directory, "day#{day}.txt")
-    end
-
-    def directory
-      File.join(__dir__, "..", "..", "cache", year)
+      File.join(year_dir, "day#{day}.txt")
     end
 
     def download
       raise "Unable to download input without session cookie." unless session_cookie
 
-      ensure_directory
+      ensure_year_dir
       puts "Downloading input for #{year}, day #{day}..."
       uri = URI("https://adventofcode.com/#{year}/day/#{day}/input")
       req = Net::HTTP::Get.new(uri)
@@ -48,12 +44,20 @@ module AdventOfCode
       res.body
     end
 
-    def ensure_directory
-      Dir.mkdir(directory) unless Dir.exist?(directory)
+    def ensure_year_dir
+      Dir.mkdir(year_dir) unless Dir.exist?(year_dir)
+    end
+
+    def year_dir
+      @_year_dir ||= File.join(cache_dir, year)
     end
 
     def session_cookie
-      ENV["AOC_SESSION"]
+      @_session_cookie ||= File.open(File.join(cache_dir, "session"), &:readline).strip
+    end
+
+    def cache_dir
+      @_cache_dir ||= File.join(__dir__, "..", "..", "cache")
     end
   end
 end
