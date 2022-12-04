@@ -1,14 +1,28 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.8.1)
+      public_suffix (>= 2.0.2, < 6.0)
+    concurrent-ruby (1.1.10)
+    ferrum (0.13)
+      addressable (~> 2.5)
+      concurrent-ruby (~> 1.1)
+      webrick (~> 1.7)
+      websocket-driver (>= 0.6, < 0.8)
     minitest (5.16.3)
+    public_suffix (5.0.0)
     rake (13.0.6)
+    webrick (1.7.0)
+    websocket-driver (0.7.5)
+      websocket-extensions (>= 0.1.0)
+    websocket-extensions (0.1.5)
     zeitwerk (2.6.6)
 
 PLATFORMS
   arm64-darwin-22
 
 DEPENDENCIES
+  ferrum
   minitest
   rake
   zeitwerk
