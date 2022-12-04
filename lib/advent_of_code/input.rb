@@ -39,6 +39,7 @@ module AdventOfCode
       uri = URI("https://adventofcode.com/#{year}/day/#{day}/input")
       req = Net::HTTP::Get.new(uri)
       req["Cookie"] = "session=#{session_cookie}"
+      req["User-Agent"] = "github.com/davidstosik/advent_of_code" # FIXME make configurable?
       res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
         http.request(req)
       end
