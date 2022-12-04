@@ -75,10 +75,6 @@ module AdventOfCode
           ElfGroup.new(lines)
         end
       end
-
-      def input_lines
-        @_input_lines ||= input.lines(chomp: true)
-      end
     end
   end
 end

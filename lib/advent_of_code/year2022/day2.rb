@@ -111,7 +111,7 @@ module AdventOfCode
       private
 
       def score_with_decrypter(decrypter_class)
-        input.lines(chomp: true).map do |line|
+        input_lines.map do |line|
           decrypter_class.new(line).round.score
         end.sum
       end

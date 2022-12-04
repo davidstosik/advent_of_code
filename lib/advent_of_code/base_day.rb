@@ -4,8 +4,12 @@ module AdventOfCode
   class BaseDay
     private
 
+    def input_lines
+      @_input_lines ||= input.lines(chomp: true)
+    end
+
     def input
-      Input.new(year, day).read
+      @_input ||= Input.new(year, day).read
     end
 
     def year

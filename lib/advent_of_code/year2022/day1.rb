@@ -6,7 +6,7 @@ module AdventOfCode
   module Year2022
     class Day1 < BaseDay
       def part1
-        input.lines(chomp: true).inject(max: 0, sum: 0) do |acc, line|
+        input_lines.inject(max: 0, sum: 0) do |acc, line|
           if line.empty?
             acc[:max] = acc[:sum] if acc[:sum] > acc[:max]
             acc[:sum] = 0
