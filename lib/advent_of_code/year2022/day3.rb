@@ -2,60 +2,60 @@
 
 module AdventOfCode
   module Year2022
-    class Item
-      attr_reader :letter
+    class Day3 < AdventOfCode::BaseDay
+      class Item
+        attr_reader :letter
 
-      def initialize(letter)
-        @letter = letter
-      end
+        def initialize(letter)
+          @letter = letter
+        end
 
-      def priority
-        case letter
-        when "a".."z"
-          letter.ord - "a".ord + 1
-        when "A".."Z"
-          letter.ord - "A".ord + 27
+        def priority
+          case letter
+          when "a".."z"
+            letter.ord - "a".ord + 1
+          when "A".."Z"
+            letter.ord - "A".ord + 27
+          end
         end
       end
-    end
 
-    class Rucksack
-      def initialize(items)
-        @items = items.chars
+      class Rucksack
+        def initialize(items)
+          @items = items.chars
+        end
+
+        def mixed_item
+          Item.new(first_compartment.intersection(second_compartment).first)
+        end
+
+        private
+
+        attr_reader :items
+
+        def first_compartment
+          items[0..(items.size / 2)]
+        end
+
+        def second_compartment
+          items[(items.size / 2)..-1]
+        end
       end
 
-      def mixed_item
-        Item.new(first_compartment.intersection(second_compartment).first)
+      class ElfGroup
+        def initialize(lines)
+          @lines = lines.map(&:chars)
+        end
+
+        def badge
+          Item.new(lines.inject(&:intersection).first)
+        end
+
+        private
+
+        attr_reader :lines
       end
 
-      private
-
-      attr_reader :items
-
-      def first_compartment
-        items[0..(items.size / 2)]
-      end
-
-      def second_compartment
-        items[(items.size / 2)..-1]
-      end
-    end
-
-    class ElfGroup
-      def initialize(lines)
-        @lines = lines.map(&:chars)
-      end
-
-      def badge
-        Item.new(lines.inject(&:intersection).first)
-      end
-
-      private
-
-      attr_reader :lines
-    end
-
-    class Day3 < AdventOfCode::BaseDay
       def part1
         rucksacks.map(&:mixed_item).sum(&:priority)
       end

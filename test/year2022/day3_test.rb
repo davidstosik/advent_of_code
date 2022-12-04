@@ -19,20 +19,20 @@ module AdventOfCode
       end
 
       def test_item_priority
-        assert_equal 1, Item.new("a").priority
-        assert_equal 26, Item.new("z").priority
-        assert_equal 27, Item.new("A").priority
-        assert_equal 52, Item.new("Z").priority
+        assert_equal 1, Day3::Item.new("a").priority
+        assert_equal 26, Day3::Item.new("z").priority
+        assert_equal 27, Day3::Item.new("A").priority
+        assert_equal 52, Day3::Item.new("Z").priority
       end
 
       def test_rucksack_mixed_item
-        rucksack = Rucksack.new("abca")
+        rucksack = Day3::Rucksack.new("abca")
 
         assert_equal "a", rucksack.mixed_item.letter
       end
 
       def test_elf_group_badge
-        elf_group = ElfGroup.new(<<~LINES.lines(chomp: true))
+        elf_group = Day3::ElfGroup.new(<<~LINES.lines(chomp: true))
           abac
           dedc
           fgfc
