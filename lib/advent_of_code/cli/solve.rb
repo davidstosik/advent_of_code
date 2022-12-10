@@ -37,11 +37,9 @@ module AdventOfCode
       private
 
       def run_part(part)
-        if day_object.respond_to?("part#{part}")
-          say "Part #{part}: " + day_object.public_send("part#{part}").to_s
-        else
-          say "Part #{part} not implemented yet", :yellow
-        end
+        say "Part #{part}: #{day_object.part(part)}"
+      rescue NameError
+        say "Part #{part} not implemented yet", :yellow
       end
 
       def day_object

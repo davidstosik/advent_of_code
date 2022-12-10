@@ -2,6 +2,10 @@
 
 module AdventOfCode
   class BaseDay
+    def part(n)
+      public_send("part#{n}")
+    end
+
     private
 
     def input_lines
