@@ -2,15 +2,11 @@
 
 module AdventOfCode
   module CLI
-    class Today
+    class Today < Thor::Group
       TIME_OFFSET = "-0500"
 
-      def self.run
-        new.run
-      end
-
-      def run
-        puts "Solving puzzles for #{time.strftime("%Y-%m-%d")}"
+      def command
+        say "Solving puzzles for #{time.strftime("%Y-%m-%d")}"
         run_part(1)
         run_part(2)
       end
@@ -20,7 +16,7 @@ module AdventOfCode
       def run_part(part)
         return unless day_object.respond_to?("part#{part}")
 
-        puts "Part #{part}: " + day_object.public_send("part#{part}").to_s
+        say "Part #{part}: " + day_object.public_send("part#{part}").to_s
       end
 
       def day_object
