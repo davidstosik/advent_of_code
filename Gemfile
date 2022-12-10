@@ -2,6 +2,7 @@
 
 source "https://rubygems.org"
 
+gem "debug"
 gem "ferrum"
 gem "minitest"
 gem "rake"
