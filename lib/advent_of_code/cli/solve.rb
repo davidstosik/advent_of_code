@@ -2,9 +2,9 @@
 
 module AdventOfCode
   module CLI
-    class Today < Thor::Group
-      namespace :today
-      desc "Solve today's puzzles"
+    class Solve < Thor::Group
+      namespace :solve
+      desc "Solve given day's puzzle (defaults to today)"
 
       def self.register_in(parent)
         usage = banner.delete_prefix(basename + " ")
