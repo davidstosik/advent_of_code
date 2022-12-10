@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module AdventOfCode
-  class CLI
+  module CLI
     class Today
       TIME_OFFSET = "-0500"
 

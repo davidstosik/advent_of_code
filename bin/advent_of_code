@@ -3,4 +3,4 @@
 
 require_relative "../boot"
 
-AdventOfCode::CLI.start(ARGV)
+AdventOfCode::CLI::App.start(ARGV)
