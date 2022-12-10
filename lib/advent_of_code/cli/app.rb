@@ -8,7 +8,7 @@ module AdventOfCode
     class App < Thor
       include Thor::Actions
 
-      register Today, "today", " today", "Solve today's puzzles"
+      Today.register_in(self)
 
       desc "login", "Open a browser window to log in to Advent of Code"
       def login

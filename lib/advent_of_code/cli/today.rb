@@ -3,7 +3,13 @@
 module AdventOfCode
   module CLI
     class Today < Thor::Group
-      TIME_OFFSET = "-0500"
+      namespace :today
+      desc "Solve today's puzzles"
+
+      def self.register_in(parent)
+        usage = banner.delete_prefix(basename + " ")
+        parent.register(self, namespace, usage, desc)
+      end
 
       def command
         say "Solving puzzles for #{time.strftime("%Y-%m-%d")}"
@@ -34,6 +40,9 @@ module AdventOfCode
       def time
         @_time ||= Time.now.localtime(TIME_OFFSET)
       end
+
+      TIME_OFFSET = "-0500"
+      private_constant :TIME_OFFSET
     end
   end
 end
