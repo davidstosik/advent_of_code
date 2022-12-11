@@ -37,7 +37,9 @@ module AdventOfCode
       private
 
       def run_part(part)
-        say "Part #{part}: #{day_object.part(part)}"
+        solution = day_object.part(part).to_s
+        solution = "\n#{solution}\n" if solution.include?("\n")
+        say "Part #{part}: #{solution}"
       rescue NameError
         say "Part #{part} not implemented yet", :yellow
       end
