@@ -1,0 +1,33 @@
+# frozen_string_literal: true
+
+require "test_helper"
+
+module AdventOfCode
+  module Year<%= year %>
+    class Day<%= day %>Test < Minitest::Test
+      SAMPLE_INPUT = <<~INPUT
+      INPUT
+
+      PART1_OUTPUT = 0
+      PART2_OUTPUT = 0
+
+      def setup
+        @day = Day<%= day %>.new
+      end
+
+      def test_part1
+        skip
+        @day.stub :input, SAMPLE_INPUT do
+          assert_equal PART1_OUTPUT, @day.part1
+        end
+      end
+
+      def test_part2
+        skip
+        @day.stub :input, SAMPLE_INPUT do
+          assert_equal PART2_OUTPUT, @day.part2
+        end
+      end
+    end
+  end
+end

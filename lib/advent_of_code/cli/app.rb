@@ -9,6 +9,7 @@ module AdventOfCode
       include Thor::Actions
 
       Solve.register_in(self)
+      Generate.register_in(self)
 
       desc "login", "Open a browser window to log in to Advent of Code"
       def login

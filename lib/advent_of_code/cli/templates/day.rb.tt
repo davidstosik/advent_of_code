@@ -1,0 +1,8 @@
+# frozen_string_literal: true
+
+module AdventOfCode
+  module Year<%= year %>
+    class Day<%= day %> < AdventOfCode::BaseDay
+    end
+  end
+end
