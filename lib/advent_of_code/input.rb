@@ -39,7 +39,7 @@ module AdventOfCode
       res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |http|
         http.request(req)
       end
-      # FIXME handle errors
+      # FIXME handle errors (eg 404)
       File.write(local_path, res.body)
       res.body
     end
@@ -49,7 +49,7 @@ module AdventOfCode
     end
 
     def year_dir
-      @_year_dir ||= File.join(cache_dir, year)
+      @_year_dir ||= File.join(cache_dir, year.to_s)
     end
 
     def session_cookie
